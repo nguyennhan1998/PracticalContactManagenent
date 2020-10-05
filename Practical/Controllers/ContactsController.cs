@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Practical.Models;
+using PagedList;
 
 namespace Practical.Controllers
 {
@@ -15,10 +16,6 @@ namespace Practical.Controllers
         private contactmanagementEntities db = new contactmanagementEntities();
 
         // GET: Contacts
-        public ActionResult Index()
-        {
-            return View(db.Contacts.ToList());
-        }
 
         public ViewResult Index(string sortOrder, string search, string currentFilter, int? page)
         {
@@ -56,10 +53,7 @@ namespace Practical.Controllers
             /* return View(students.ToList());*/
         }
 
-        private ViewResult View(object p)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         // GET: Contacts/Details/5
         public ActionResult Details(int? id)
